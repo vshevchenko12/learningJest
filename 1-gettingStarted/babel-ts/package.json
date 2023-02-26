@@ -1,0 +1,19 @@
+{
+	"name": "babel-ts",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "*",
+		"@babel/preset-env": "*",
+		"@babel/preset-typescript": "*",
+		"@jest/globals": "*",
+		"babel-jest": "*"
+	}
+}

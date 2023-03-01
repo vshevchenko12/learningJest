@@ -170,10 +170,20 @@ it('filtertest', () => {
 	// and `false` for the second call
 	filterTestFn.mockReturnValueOnce(true).mockReturnValueOnce(false);
 
-	const result = [11, 12].filter((num) => filterTestFn(num));
+	// const result = [11, 12].filter(filterTestFn); // [ [ 11, 0, [ 11, 12 ] ], [ 12, 1, [ 11, 12 ] ] ]
+	const result = [11, 12].filter((num) => filterTestFn(num)); // [ [ 11 ], [ 12 ] ]
 
 	console.log(result);
 	// > [11]
 	console.log(filterTestFn.mock.calls[0][0]); // 11
 	console.log(filterTestFn.mock.calls[1][0]); // 12
+	// console.log(filterTestFn.mock);
+	/**{
+      calls: [ [ 11 ], [ 12 ] ],
+      contexts: [ undefined, undefined ],
+      instances: [ undefined, undefined ],
+      invocationCallOrder: [ 14, 15 ],
+      results: [ { type: 'return', value: true }, { type: 'return', value: false } ],
+      lastCall: [ 12 ]
+    } */
 });

@@ -187,3 +187,110 @@ it('filtertest', () => {
       lastCall: [ 12 ]
     } */
 });
+
+/** Mock Implementations */
+
+it('mockImplementation', () => {
+	const myMockFn = jest.fn((cb) => cb(null, true));
+
+	myMockFn((err, val) => console.log(val));
+	// > true
+});
+
+it('mockImplementationOnce', () => {
+	const myMockFn = jest
+		.fn()
+		.mockImplementationOnce((cb) => cb(null, true))
+		.mockImplementationOnce((cb) => cb(null, false));
+
+	myMockFn((err, val) => console.log(val));
+	// > true
+
+	myMockFn((err, val) => console.log(val));
+	// > false
+});
+
+it('mockImplementationOnce', () => {
+	const myMockFn = jest
+		.fn(() => 'default')
+		.mockImplementationOnce(() => 'first call')
+		.mockImplementationOnce(() => 'second call');
+
+	console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
+	// > 'first call', 'second call', 'default', 'default'
+});
+
+it('return this', () => {
+	const myObj = {
+		myMethod: jest.fn().mockReturnThis(),
+	};
+
+	// is the same as
+
+	const otherObj = {
+		myMethod: jest.fn(function () {
+			return this;
+		}),
+	};
+
+	// console.log(myObj.myMethod());
+	/**{
+      myMethod: [Function: mockConstructor] {
+        _isMockFunction: true,
+        getMockImplementation: [Function (anonymous)],
+        mock: [Getter/Setter],
+        mockClear: [Function (anonymous)],
+        mockReset: [Function (anonymous)],
+        mockRestore: [Function (anonymous)],
+        mockReturnValueOnce: [Function (anonymous)],
+        mockResolvedValueOnce: [Function (anonymous)],
+        mockRejectedValueOnce: [Function (anonymous)],
+        mockReturnValue: [Function (anonymous)],
+        mockResolvedValue: [Function (anonymous)],
+        mockRejectedValue: [Function (anonymous)],
+        mockImplementationOnce: [Function (anonymous)],
+        withImplementation: [Function: bound withImplementation],
+        mockImplementation: [Function (anonymous)],
+        mockReturnThis: [Function (anonymous)],
+        mockName: [Function (anonymous)],
+        getMockName: [Function (anonymous)]
+      }
+    } */
+	// console.log(otherObj.myMethod());
+	/**{
+      myMethod: [Function: mockConstructor] {
+        _isMockFunction: true,
+        getMockImplementation: [Function (anonymous)],
+        mock: [Getter/Setter],
+        mockClear: [Function (anonymous)],
+        mockReset: [Function (anonymous)],
+        mockRestore: [Function (anonymous)],
+        mockReturnValueOnce: [Function (anonymous)],
+        mockResolvedValueOnce: [Function (anonymous)],
+        mockRejectedValueOnce: [Function (anonymous)],
+        mockReturnValue: [Function (anonymous)],
+        mockResolvedValue: [Function (anonymous)],
+        mockRejectedValue: [Function (anonymous)],
+        mockImplementationOnce: [Function (anonymous)],
+        withImplementation: [Function: bound withImplementation],
+        mockImplementation: [Function (anonymous)],
+        mockReturnThis: [Function (anonymous)],
+        mockName: [Function (anonymous)],
+        getMockName: [Function (anonymous)]
+      }
+    } */
+});
+
+/** Mock Names */
+
+it('mock name', () => {
+	const myMockFn = jest
+		.fn()
+		.mockReturnValue('default')
+		.mockImplementation((scalar) => 42 + scalar)
+		.mockName('add42');
+
+	// expect(myMockFn).toHaveBeenCalled();
+});
+
+/** Mock Names */

@@ -70,6 +70,7 @@ test('the fetch fails with an error  with reject', async () => {
 test('the fetch fails with an error  with reject', async () => {
 	await expect(fetchDataPromiseWithError()).rejects.toThrow('error');
 });
+
 /* Callbacks */
 
 // Jest will throw an error, if the same test function is passed a done() callback and returns a promise. This is done as a precaution to avoid memory leaks in your tests.

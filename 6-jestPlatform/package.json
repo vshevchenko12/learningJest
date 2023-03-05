@@ -1,0 +1,23 @@
+{
+	"name": "2-usingmatchers",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "*",
+		"@babel/preset-env": "*",
+		"babel-jest": "*"
+	},
+	"dependencies": {
+		"jest-changed-files": "^29.4.3",
+		"jest-diff": "^29.4.3",
+		"jest-docblock": "^29.4.3",
+		"jest-validate": "^29.4.3",
+		"jest-worker": "^29.4.3"
+	}
+}

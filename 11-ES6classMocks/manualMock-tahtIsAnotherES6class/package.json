@@ -12,8 +12,5 @@
 		"@babel/core": "*",
 		"@babel/preset-env": "*",
 		"babel-jest": "*"
-	},
-	"dependencies": {
-		"lodash": "^4.17.21"
 	}
 }

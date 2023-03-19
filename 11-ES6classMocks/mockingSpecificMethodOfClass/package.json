@@ -1,0 +1,16 @@
+{
+	"name": "2-usingmatchers",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "*",
+		"@babel/preset-env": "*",
+		"babel-jest": "*"
+	}
+}
